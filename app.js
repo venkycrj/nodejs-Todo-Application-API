@@ -1,3 +1,11 @@
+/* create table in todoApplication.db using sqlite CLI in terminal 
+sqlite> INSERT INTO todo(id, todo, priority, status)
+   ...> VALUES(3, "Learn CSS", "LOW", "DONE");
+sqlite> SELECT * FROM todo;
+1|Learn Node JS|HIGH|IN PROGRESS
+2|Learn JS|MEDIUM|DONE
+3|Learn CSS|LOW|DONE*/
+
 const express = require("express");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
