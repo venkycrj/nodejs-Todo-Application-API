@@ -80,7 +80,7 @@ app.get("/todos/:todoId/", async (request, response) => {
   const getTodoQuery = `SELECT * FROM todo
         WHERE id = ${todoId};`;
 
-  const todoData = await db.all(getTodoQuery);
+  const todoData = await db.get(getTodoQuery); // corrected with get() rather than all()
   response.send(todoData);
 });
 
@@ -99,7 +99,7 @@ app.post("/todos/", async (request, response) => {
 app.put("/todos/:todoId/", async (request, response) => {
   try {
     const { todoId } = request.params;
-    const updateColumn = "";
+    let updateColumn = "";       // corrected with let instead of const 
     const requestBody = request.body;
 
     switch (true) {
@@ -119,7 +119,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     FROM 
         todo 
     WHERE 
-        id ="${todoId}";`;
+        id =${todoId};`;  // corrected by deleteing the "" quotation for integer value
 
     const previousTodoData = await db.get(previousTodoQuery);
 
